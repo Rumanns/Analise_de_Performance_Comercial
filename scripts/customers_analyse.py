@@ -35,13 +35,25 @@ def path_data():
 
 
 def le_dados():
+    #Caminho dos dados
     path_data()
-#    df = pd.read_csv(f'{diretorio}\\olist_customers_dataset.csv')
-    for arquivo in arquivos:
-        print(f'{arquivo}:')
-        df = pd.read_csv(f'{diretorio}\\{arquivo}')
-        print(df.head())
-        
+    
+    #Cria o dataframe de cada arquivo
+    orders = pd.read_csv(f'{diretorio}\\olist_orders_dataset.csv')
+    order_items = pd.read_csv(f'{diretorio}\\olist_order_items_dataset.csv')
+    order_payments = pd.read_csv(f'{diretorio}\\olist_order_payments_dataset.csv')
+    products = pd.read_csv(f'{diretorio}\\olist_products_dataset.csv')
+    customers = pd.read_csv(f'{diretorio}\\olist_customers_dataset.csv')
+    
+    #Merge dos dados
+    
+    df = order_items.merge(orders[['order_id', 'customer_id', 'order_purchase_timestamp']],
+                           on='order_id', how='left')
+    
+    df = df.merge(order_payments[['order_id', 'payment_value']],
+                  on='order_id', how='left')
+    
+    print(df)
 
 le_dados()
 
