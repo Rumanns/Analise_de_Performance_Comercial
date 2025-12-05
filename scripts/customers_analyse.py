@@ -49,11 +49,19 @@ def le_dados():
     
     df = order_items.merge(orders[['order_id', 'customer_id', 'order_purchase_timestamp']],
                            on='order_id', how='left')
-    
     df = df.merge(order_payments[['order_id', 'payment_value']],
                   on='order_id', how='left')
+    df = df.merge(products[['product_id', 'product_category_name']],
+                  on='product_id', how='left')
+    df = df.merge(customers[['customer_id', 'customer_state']],
+                  on ='customer_id', how='left')
     
-    print(df)
+    # Converter datas
+    df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
+    df['order_purchase_date'] = df['order_purchase_timestamp'].dt.date
+    df['order_purchase_year_month'] = df['order_purchase_timestamp'].dt.to_period('M').astype(str)
+    
+    return(df)
 
 le_dados()
 
