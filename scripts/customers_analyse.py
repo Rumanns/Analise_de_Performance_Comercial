@@ -34,7 +34,7 @@ def path_data():
     print(f'Há {len(arquivos)} arquivos na pasta\n')
 
 
-def le_dados():
+def load_data():
     #Caminho dos dados
     path_data()
     
@@ -63,7 +63,47 @@ def le_dados():
     
     return(df)
 
-le_dados()
+# Carregar dados
+
+try:
+    df = load_data()
+    
+    #Sidebar com filtros
+    st.sidebar.header("🔍 Filtros")
+    
+    #Filtro de período
+    main_date = df['order_purchase_date'].min()
+    max_date = df['order_purchase_date'].max()
+    
+    date_range - st.sidebar.date_input(
+        "Período de Análise",
+        value=[min_date, max_date],
+        min_value=min_date,
+        max_value=max_date
+    )    
+    
+    #Filtro de estado
+    states = ['Todos'] + sorted(df['customer_state'].unique().tolist())
+    selected_state = st.sidebar.selectbox("Estado do Cliente", states)
+    
+    
+    
+# except FileNotFoundError as e:
+#     st.error(f"Erro ao carregar dados {str(e)}")
+#     st.info("""
+#             Certifique-se de que:
+#                 1. Os arquivos CSV estão na pasta 'data/'
+#                 2. Os nomes dos arquivos estão corretos:
+#                     - olist_orders_dataset.csv
+#                     - olist_order_items_dataset.csv
+#                     - olist_order_payments_dataset.csv
+#                     - olist_products_dataset.csv
+#                     - olist_customers_dataset.csv
+#             """)
+
+
+
+#load_data()
 
 
 
