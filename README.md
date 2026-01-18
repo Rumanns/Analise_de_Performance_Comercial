@@ -1,16 +1,16 @@
 ### Análise de  Performance Comercial
 
-\[Badges: build, version, license, etc]
+Analisar dados de comércio e emitir relatórios
 
 
 
-### 📋 Sobre o Projeto
+### Sobre o Projeto 📋
 
 O projeto trata da análise do dataset "Olist", com o objetivo de observar potenciais gastos, lucros e produtos em demanda.
 
 
 
-### 🚀 Começando
+### Começando 🚀
 
 *(Seu "Como Usar" - mas com subseções)*
 
@@ -34,25 +34,25 @@ O projeto trata da análise do dataset "Olist", com o objetivo de observar poten
 
 
 
-### 🧪 Testes
+### Testes 🧪
 
 *(Que tipos de testes se mostraram promissores? Quais metodologias e/ou estatísticas foram usadas?)*
 
 
 
-### 📊 Resultados
+### Resultados 📊
 
 *(A partir dos testes, quais foram os resultados obtidos? Supriram as expectative ou foram aquém delas?)*
 
 
 
-### 🏗️ Estrutura do Projeto
+### Estrutura do Projeto 🏗️
 
 *(Opcional, mas útil)*
 
 
 
-### 🤝 Contribuição
+### Contribuição 🤝
 
 *(Opcional, mas importante para projetos open source)*
 
